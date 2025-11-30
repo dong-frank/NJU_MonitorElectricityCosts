@@ -1,5 +1,11 @@
-FROM python:3.12-slim
+FROM python:3.10
+
 WORKDIR /app
-COPY . .
-RUN pip install flask requests
+
+COPY . /app
+
+RUN pip install --no-cache-dir flask requests
+
+EXPOSE 5000
+
 CMD ["python", "app.py"]
